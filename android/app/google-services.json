@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "686295885595",
+    "project_id": "gymobile-2ac12",
+    "storage_bucket": "gymobile-2ac12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686295885595:android:fe3c64e6ba954d314215be",
+        "android_client_info": {
+          "package_name": "com.example.gymobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686295885595-d9ep4urqbrfgqbuhvo53gfudvbeomtlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu9iCnWr8CMZVRDj90RlrBFOsbk5g-he8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686295885595-d9ep4urqbrfgqbuhvo53gfudvbeomtlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
