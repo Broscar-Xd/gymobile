@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymobile/src/pages/feeding_page.dart';
 import 'package:gymobile/src/pages/home_page.dart';
-//import 'package:firebase_core/firebase_core.dart';
-import 'package:gymobile/src/pages/routine_page.dart';
-import 'package:gymobile/src/widgets/Content/feeding_widget.dart';
+import 'package:gymobile/src/pages/welcome_page.dart';
 void main() {//async {
   //WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp();
@@ -24,7 +22,8 @@ class MyApp extends StatelessWidget {
 
       
       routes: {
-        FeedingPage.ROUTE : (_) => FeedingPage()
+        FeedingPage.ROUTE : (_) => FeedingPage(),
+        WelcomePage.ROUTE: (_)=> WelcomePage()
 
       },
     );

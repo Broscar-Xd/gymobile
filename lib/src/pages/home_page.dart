@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gymobile/src/pages/routine_page.dart';
+import 'package:gymobile/src/pages/welcome_page.dart';
 import 'package:gymobile/src/utils/enums.dart';
-import 'package:gymobile/src/widgets/Content/feeding_widget.dart';
-
 import 'feeding_page.dart';
 
 //import 'feeding_page.dart';
@@ -29,9 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.fitness_center_sharp), onPressed: (){
-        Navigator.pushNamed(context, FeedingPage.ROUTE);
-      }),
+      
       appBar: AppBar(
         centerTitle: true,
         title: Text(_selectedIndex == 0? widget.titulo : menuOptions[_selectedIndex].label),

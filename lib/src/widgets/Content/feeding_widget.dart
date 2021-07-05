@@ -26,10 +26,9 @@ class _FeddingWidgetState extends State<FeddingWidget> {
       child: Center(child:  CircularProgressIndicator()),
     ):
     Column(
-      children: _feeding.map((e) => ListTile(title: Text(e.ingredients), subtitle: Text(e.preparation), leading: Text(e.food)
-      
-      )
-      ).toList()
+       mainAxisSize: MainAxisSize.min,
+       crossAxisAlignment: CrossAxisAlignment.center,
+      children: _feeding.map((e) => ListTile(title: Text(e.ingredients), subtitle: Text(e.preparation), leading: Text(e.food))).toList()
     );
   }
 

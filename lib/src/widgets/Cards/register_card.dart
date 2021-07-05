@@ -24,6 +24,12 @@ class RegisterCard extends StatelessWidget {
             ),
 
             RaisedButton(child: Text(""),
+            color: Colors.lightGreen,
+                elevation: 20,
+                splashColor: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                padding: EdgeInsets.all(30),
             onPressed: (){
               
             },

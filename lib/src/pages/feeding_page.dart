@@ -27,6 +27,7 @@ class _FeedingPageState extends State<FeedingPage> {
       ),
       body: Container(
       child: SingleChildScrollView(child: Card(
+        
         child: FeddingWidget()),) 
     ));  
       
