@@ -1,0 +1,20 @@
+[
+    {
+        "type" : "Pectoral"
+    },
+    {
+        "type" : "Espalda"
+    },
+    {
+        "type" : "Triceps"
+    },
+    {
+        "type" : "Biseps"
+    },
+    {
+        "type" : "Pierna"
+    },
+    {
+        "type" : "Abdomen"
+    }
+]

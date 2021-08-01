@@ -58,14 +58,9 @@ class _FormRegister extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            RaisedButton(
+            ElevatedButton(
                 child: Text("Guardar"),
-                color: Colors.black26,
-                elevation: 20,
-                splashColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16.0))),
-                padding: EdgeInsets.all(30),
+              
                 onPressed: () {
                   Navigator.pushNamed(context, WelcomePage.ROUTE);
                 })

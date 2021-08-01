@@ -1,22 +1,21 @@
 import 'dart:convert';
-
-import 'package:gymobile/src/models/feeding_model.dart';
+import 'package:gymobile/src/models/routine_model.dart';
 import 'package:http/http.dart' as http;
 
-class FeedingService{
+class RoutineService{
 
-  FeedingService();
+  RoutineService();
 
-  Future<List<Feeding>> getFeeding() async{
-    List<Feeding> items = [];
+  Future<List<Routine>> getRoutine() async{
+    List<Routine> items = [];
     try{
-      var uri = Uri.https("us-central1-mobilegym-c8921.cloudfunctions.net", "/api/app/feeding/1/100");
+      var uri = Uri.https("us-central1-mobilegym-c8921.cloudfunctions.net", "/api/app/routine/1/100");
       final resp = await http.get(uri);
       if(resp.body.isEmpty) return items;
       List<dynamic> jsonList = json.decode(resp.body);
       for (var item in jsonList){
-        final feeding = new Feeding.fromJson(item);
-        items.add(feeding);
+        final routine = new Routine.fromJson(item);
+        items.add(routine);
       }
       return items;
     } on Exception catch (e) {
@@ -25,13 +24,13 @@ class FeedingService{
     }
   }
 
-  Future<dynamic> sendFeeding(Feeding feeding) async {
+  Future<dynamic> sendRoutine(Routine routine) async {
     try {
       final Map<String, String> _headers = {"content-type": "application/json"};
       var uri =
-          Uri.https("us-central1-mobilegym-c8921.cloudfunctions.net", "/api/api/feeding");
-      String feedingJson = feedingToJson(feeding);
-      final resp = await http.post(uri, headers: _headers, body: feedingJson);
+          Uri.https("us-central1-mobilegym-c8921.cloudfunctions.net", "/api/api/routine");
+      String routineJson = routineToJson(routine);
+      final resp = await http.post(uri, headers: _headers, body: routineJson);
       if (resp.body.isEmpty) return null;
       return json.decode(resp.body);
     } on Exception catch (e) {
@@ -41,4 +40,3 @@ class FeedingService{
   }
 
 }
-

@@ -20,6 +20,7 @@ class Feeding {
     String ingredients;
     String preparation;
     String calories;
+    Feeding.create(this.food, this.ingredients,this.preparation, this.calories);
 
     factory Feeding.fromJson(Map<String, dynamic> json) => Feeding(
         food: json["food"],
@@ -34,4 +35,6 @@ class Feeding {
         "preparation": preparation,
         "calories": calories,
     };
+
+
 }

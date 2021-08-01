@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gymobile/src/pages/feeding_form.dart';
+import 'package:gymobile/src/pages/feeding_page.dart';
 import 'package:gymobile/src/pages/welcome_page.dart';
 import 'package:gymobile/src/utils/enums.dart';
-import 'feeding_page.dart';
+import 'package:gymobile/src/widgets/Content/feeding_widget.dart';
+
 
 //import 'feeding_page.dart';
 //import 'package:gymobile/src/widgets/home_widget.dart';
@@ -26,10 +29,29 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       
       appBar: AppBar(
         centerTitle: true,
+        leading: IconButton(onPressed: (){
+        } , icon: Icon(Icons.menu)),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, WelcomePage.ROUTE);
+          }, icon: Icon(Icons.person),),
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, FeedingForm.ROUTE);
+          }, icon: Icon(Icons.add),),
+        
+        ],
+        elevation: 40,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [Colors.purple, Colors.orange]
+            )
+          ),
+        ),
         title: Text(_selectedIndex == 0? widget.titulo : menuOptions[_selectedIndex].label),
       ),
       body: Container(margin: EdgeInsets.symmetric(horizontal: 14.0), child: contentWidget[_selectedIndex]),

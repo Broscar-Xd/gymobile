@@ -8,7 +8,7 @@ class WelcomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
-        subtitle: Image.asset("images/"+img+".jpg"),
+        subtitle: Image.asset("../assets/images/us.png", width: 158, height: 158,),
       ),
     );
   }

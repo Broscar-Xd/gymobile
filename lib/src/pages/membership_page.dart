@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gymobile/src/widgets/Cards/welcome_card.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class WelcomeWidget extends StatefulWidget {
-  static const String ROUTE = "welcome";
-  WelcomeWidget({Key? key}) : super(key: key);
+class MembershipPage extends StatelessWidget {
+  static const String ROUTE = "Membership";
 
-  @override
-  _WelcomeWidgetState createState() => _WelcomeWidgetState();
-}
-
-class _WelcomeWidgetState extends State<WelcomeWidget> {
   @override
   Widget build(BuildContext context) {
-    //double _heigth = MediaQuery.of(context).size.height;8
-
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          WelcomeCard(img: "pp"),
-          Container(
+    return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Membresia"),
+        ),
+        body: Container(
             child: SingleChildScrollView(
           child: Card(
               child: Column(
@@ -42,12 +33,6 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
               
             ],
           )),
-        )),
-          SizedBox(
-            height: 40.0,
-          ),
-        ],
-      ),
-    );
+        )));
   }
 }

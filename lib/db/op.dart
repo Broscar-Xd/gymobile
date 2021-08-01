@@ -1,6 +1,6 @@
-//import 'package:gymobile/src/models/feeding_model.dart';
-import 'package:gymobile/src/models/feeding_model2.dart';
+/*//import 'package:gymobile/src/models/feeding_model.dart';
 // ignore: import_of_legacy_library_into_null_safe
+import 'package:gymobile/src/models/feeding_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -33,4 +33,4 @@ class Gymbase{
     
     return List.generate(fm.length, (i) => Feeding(id: fm[i]['id'],food: fm[i]['food'], ingredients: fm[i]['ingredients'], preparation: fm[i]['preparation'], calories: fm[i]['calories']));
   }
-}
+}*/
