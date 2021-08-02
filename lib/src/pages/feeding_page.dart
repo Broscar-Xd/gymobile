@@ -53,8 +53,7 @@ class FeedingPage extends StatelessWidget {
             Standard.getBackground(context),
           ],
         )));
-
-        
+   
   }
   
 }
