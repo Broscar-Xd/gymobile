@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:gymobile/src/models/feeding_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -37,6 +39,22 @@ class FeedingService{
     } on Exception catch (e) {
       print("Exception $e");
       return null;
+    }
+  }
+
+  Future<String> uploadImage(File image) async {
+    final cloudinary = CloudinaryPublic('ds4rdxtr8', 'plm2cmac', cache: false);
+    try {
+      CloudinaryResponse response = await cloudinary.uploadFile(
+        CloudinaryFile.fromFile(image.path,
+            resourceType: CloudinaryResourceType.Image),
+      );
+
+      return response.secureUrl;
+    } on CloudinaryException catch (e) {
+      print(e.message);
+      print(e.request);
+      return "";
     }
   }
 

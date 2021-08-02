@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gymobile/src/pages/feeding_form.dart';
-import 'package:gymobile/src/pages/feeding_page.dart';
+
 import 'package:gymobile/src/pages/welcome_page.dart';
 import 'package:gymobile/src/utils/enums.dart';
-import 'package:gymobile/src/widgets/Content/feeding_widget.dart';
 
 
 //import 'feeding_page.dart';
@@ -40,9 +39,6 @@ class _HomePageState extends State<HomePage> {
           IconButton(onPressed: (){
             Navigator.pushNamed(context, WelcomePage.ROUTE);
           }, icon: Icon(Icons.person),),
-          IconButton(onPressed: (){
-            Navigator.pushNamed(context, FeedingForm.ROUTE);
-          }, icon: Icon(Icons.add),),
         
         ],
         elevation: 40,
@@ -55,6 +51,18 @@ class _HomePageState extends State<HomePage> {
         title: Text(_selectedIndex == 0? widget.titulo : menuOptions[_selectedIndex].label),
       ),
       body: Container(margin: EdgeInsets.symmetric(horizontal: 14.0), child: contentWidget[_selectedIndex]),
+      floatingActionButton: _selectedIndex == 1
+          ? FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FeedingForm(),
+                    ));
+              },
+              child: const Icon(Icons.add),
+            )
+          : null,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (value){

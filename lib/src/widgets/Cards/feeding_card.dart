@@ -26,8 +26,11 @@ class FeedingCard extends StatelessWidget {
             child: Text(currentFeeding.preparation,
                 style: Theme.of(context).textTheme.caption),
           ),
-          leading: Text(currentFeeding.food,
-              style: Theme.of(context).textTheme.bodyText1),
+          leading:  ClipOval(
+              // ignore: unnecessary_null_comparison
+              child: currentFeeding.photo == null
+                  ? Image.asset("../assets/images/food.jpg")
+                  : Image.network(currentFeeding.photo.toString())),
         ));
   }
 }

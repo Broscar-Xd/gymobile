@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gymobile/src/models/feeding_model.dart';
 import 'package:gymobile/src/services/feeding_service.dart';
 import 'package:gymobile/src/utils/standard_widgets.dart';
+import 'package:image_picker/image_picker.dart';
 
 
 class FeedingForm extends StatefulWidget {
@@ -18,6 +20,9 @@ class _FeedingFormState extends State<FeedingForm> {
   //Un objeto del modelo a enviar
   late Feeding _feeding;
   bool _onSaving = false;
+  late File _image;
+  bool _imageSelected = false;
+  final _picker = ImagePicker();
 
   @override
   void initState() {
@@ -28,7 +33,7 @@ class _FeedingFormState extends State<FeedingForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Standard.appBar(context, "Nuevo alimento"),
+        appBar: Standard.appBar(context, "Nueva comida"),
         body: SingleChildScrollView(
           child: Stack(
             alignment: AlignmentDirectional.topCenter,
@@ -38,7 +43,37 @@ class _FeedingFormState extends State<FeedingForm> {
                 margin: EdgeInsets.symmetric(vertical: 25.0),
                 child: Column(
                   children: [
-                    Standard.titleToForm(context, "Nueva comida"),
+                    Stack(
+                      alignment: AlignmentDirectional.bottomCenter,
+                      children: [
+                        _showImage(),
+                        Container(
+                          width: 325.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Tooltip(
+                                message: "Tomar foto",
+                                child: ElevatedButton(
+                                  onPressed: _takeImage,
+                                  child: Icon(Icons.camera_alt),
+                                  style: Standard.buttonStandardStyle(context),
+                                ),
+                              ),
+                              Tooltip(
+                                message: "Buscar foto",
+                                child: ElevatedButton(
+                                  onPressed: _pickImage,
+                                  child: Icon(Icons.image),
+                                  style: Standard.buttonStandardStyle(context),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Standard.titleToForm(context, "Registro de comida"),
                     _form()
                   ],
                 ),
@@ -165,14 +200,54 @@ class _FeedingFormState extends State<FeedingForm> {
 
   _sendForm() async {
     if (!formKey.currentState!.validate()) return;
+ _onSaving = true;
+    setState(() {});
 
     //Vincula el valor de las controles del formulario a los atributos del modelo
     formKey.currentState!.save();
 
+    if (_imageSelected) {
+      _feeding.photo = await _serviceFeeding.uploadImage(_image);
+    }
     //Llamamos al servicio para guardar el reporte
     _serviceFeeding.sendFeeding(_feeding).then((value) {
       formKey.currentState!.reset();
       Navigator.pop(context);
     });
   }
+
+ _showImage() {
+    return Container(
+      width: 100.0,
+      height: 100.0,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100.0),
+          color: Theme.of(context).canvasColor),
+      child: ClipOval(
+          child: _imageSelected == false
+              ? Image.asset("../assets/images/add.png")
+              : Image.file(_image)),
+    );
+  }
+
+  _takeImage() {
+    _selectImage(ImageSource.camera);
+  }
+
+  _pickImage() {
+    _selectImage(ImageSource.gallery);
+  }
+
+  Future _selectImage(ImageSource source) async {
+    final pickedFile = await _picker.pickImage(source: source);
+    if (pickedFile != null) {
+      _image = File(pickedFile.path);
+      _imageSelected = true;
+    } else {
+      print('No image selected.');
+      _imageSelected = false;
+    }
+    setState(() {});
+  }
 }
+

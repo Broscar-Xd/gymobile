@@ -11,15 +11,6 @@ class FeedingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-      FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, FeedingForm.ROUTE);
-        },
-        child: const Icon(Icons.add),
-        backgroundColor: Colors.orange,
-      );
-      
     return Scaffold(
         appBar: AppBar(
         centerTitle: true,
@@ -45,6 +36,7 @@ class FeedingPage extends StatelessWidget {
             _appBar(context),
             SliverFillRemaining(child: FeedingForm())
           ],
+          
         ));
         
         

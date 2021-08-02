@@ -14,12 +14,14 @@ class Feeding {
         required this.ingredients,
         required this.preparation,
         required this.calories,
+        this.photo,
     });
 
     String food;
     String ingredients;
     String preparation;
     String calories;
+    String? photo;
     Feeding.create(this.food, this.ingredients,this.preparation, this.calories);
 
     factory Feeding.fromJson(Map<String, dynamic> json) => Feeding(
@@ -27,6 +29,7 @@ class Feeding {
         ingredients: json["ingredients"],
         preparation: json["preparation"],
         calories: json["calories"],
+        photo: json["photo"]
     );
 
     Map<String, dynamic> toJson() => {
@@ -34,6 +37,7 @@ class Feeding {
         "ingredients": ingredients,
         "preparation": preparation,
         "calories": calories,
+        "photo": photo
     };
 
 
