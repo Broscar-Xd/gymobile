@@ -36,7 +36,6 @@ class FeedingPage extends StatelessWidget {
             _appBar(context),
             SliverFillRemaining(child: FeedingForm())
           ],
-          
         ));
         
         
