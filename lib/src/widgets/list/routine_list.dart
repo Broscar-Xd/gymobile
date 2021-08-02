@@ -40,7 +40,6 @@ class _RoutineListState extends State<RoutineList> {
                         .toList()),
               );
   }
-
   _loadRoutine() {
     _service.getRoutine().then((value) {
       _routine = value;
