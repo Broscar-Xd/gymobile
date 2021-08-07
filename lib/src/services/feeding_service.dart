@@ -41,7 +41,6 @@ class FeedingService{
       return null;
     }
   }
-
   Future<String> uploadImage(File image) async {
     final cloudinary = CloudinaryPublic('dzygpkghm', 'xmax0xkg', cache: false);
     try {
