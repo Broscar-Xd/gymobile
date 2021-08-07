@@ -29,7 +29,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             height: 40.0,
            ),
            Text("Más información en:", textAlign: TextAlign.left,),
-           Image.asset('../assets/images/fb.png', width: 18, height: 18)
+           Image.asset('assets/images/fb.png', width: 18, height: 18)
            
          ],
       ),

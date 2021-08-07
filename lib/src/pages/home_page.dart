@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymobile/src/pages/feeding_form.dart';
+import 'package:gymobile/src/pages/measures_page.dart';
+import 'package:gymobile/src/pages/settings_page.dart';
 
 import 'package:gymobile/src/pages/welcome_page.dart';
 import 'package:gymobile/src/utils/enums.dart';
@@ -34,11 +36,17 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(onPressed: (){
-        } , icon: Icon(Icons.menu)),
+            Navigator.pushNamed(context, SettingsPage.ROUTE);
+          }, icon: Icon(Icons.settings),),
         actions: [
           IconButton(onPressed: (){
             Navigator.pushNamed(context, WelcomePage.ROUTE);
           }, icon: Icon(Icons.person),),
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, MeasuresPage.ROUTE);
+          }, icon: Icon(Icons.assignment_ind_rounded),),
+          
+          
         
         ],
         elevation: 40,

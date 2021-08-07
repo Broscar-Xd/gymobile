@@ -9,7 +9,7 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
-        title: Image.asset("../assets/images/"+img+".jpg"),
+        title: Image.asset("assets/images/"+img+".jpg"),
       ),
     );
   }

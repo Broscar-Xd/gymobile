@@ -33,7 +33,16 @@ class _FeedingFormState extends State<FeedingForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Standard.appBar(context, "Nueva comida"),
+        appBar: AppBar(
+        title: Text('Nueva comida'),
+        elevation: 40,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [Colors.purple, Colors.orange]
+            )
+          ),
+        ),
+      ),
         body: SingleChildScrollView(
           child: Stack(
             alignment: AlignmentDirectional.topCenter,
@@ -225,7 +234,7 @@ class _FeedingFormState extends State<FeedingForm> {
           color: Theme.of(context).canvasColor),
       child: ClipOval(
           child: _imageSelected == false
-              ? Image.asset("../assets/images/add.png")
+              ? Image.asset("assets/images/add.png")
               : Image.file(_image)),
     );
   }

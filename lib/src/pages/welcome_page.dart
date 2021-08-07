@@ -96,7 +96,7 @@ class _WelcomePageState extends State<WelcomePage> {
           color: Theme.of(context).canvasColor),
       child: ClipOval(
           child: _imageSelected == false
-              ? Image.asset("../assets/images/user.png")
+              ? Image.asset("assets/images/user.png")
               : Image.file(_image)),
     );
   }

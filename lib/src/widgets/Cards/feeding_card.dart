@@ -29,7 +29,7 @@ class FeedingCard extends StatelessWidget {
           leading:  ClipOval(
               // ignore: unnecessary_null_comparison
               child: currentFeeding.photo == null
-                  ? Image.asset("../assets/images/food.jpg")
+                  ? Image.asset("assets/images/food.jpg")
                   : Image.network(currentFeeding.photo.toString())),
         ));
   }

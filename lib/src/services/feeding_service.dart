@@ -43,7 +43,7 @@ class FeedingService{
   }
 
   Future<String> uploadImage(File image) async {
-    final cloudinary = CloudinaryPublic('ds4rdxtr8', 'plm2cmac', cache: false);
+    final cloudinary = CloudinaryPublic('dzygpkghm', 'xmax0xkg', cache: false);
     try {
       CloudinaryResponse response = await cloudinary.uploadFile(
         CloudinaryFile.fromFile(image.path,
